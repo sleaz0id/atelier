@@ -1,0 +1,22 @@
+<h1>Items#index</h1>
+<table>
+  <thead>
+    <tr>
+      <th>title</th>
+      <% FieldType.find_each do |field_type| %>
+        <th><%= field_type.name %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= item.name %></td>
+      <% FieldType.find_each do |field_type| %>
+        <td><%= item.custom_fields.find_by(field_type: field_type).content %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  <tbody>
+  </tbody>
+</table>
+
