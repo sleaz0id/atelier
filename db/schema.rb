@@ -12,47 +12,25 @@
 
 ActiveRecord::Schema.define(version: 20170727202146) do
 
-  create_table "bookings", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
+  create_table "authors", force: :cascade do |t|
+    t.string "firstname"
+    t.string "lastname"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "isbn"
+    t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "item_id"
-    t.index ["item_id"], name: "index_bookings_on_item_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
+    t.integer "author_id"
+    t.integer "publisher_id"
+    t.index ["author_id"], name: "index_books_on_author_id"
+    t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
-  create_table "custom_fields", force: :cascade do |t|
-    t.string "content"
-    t.integer "field_type_id"
-    t.integer "item_id"
-    t.index ["field_type_id"], name: "index_custom_fields_on_field_type_id"
-    t.index ["item_id"], name: "index_custom_fields_on_item_id"
-  end
-
-  create_table "field_types", force: :cascade do |t|
+  create_table "publishers", force: :cascade do |t|
     t.string "name"
-  end
-
-  create_table "items", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_items_on_user_id"
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.text "content"
-    t.integer "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "item_id"
-    t.index ["item_id"], name: "index_reviews_on_item_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
