@@ -1,0 +1,17 @@
+<h1>Books#index</h1>
+<table>
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>ISBN</th>
+    </tr>
+  </thead>
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.isbn %></td>
+    </tr>
+  <% end %>
+  <tbody>
+  </tbody>
+</table>
