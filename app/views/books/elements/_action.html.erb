@@ -1,0 +1,9 @@
+<% if book.can_take?(current_user) %>
+  <%= link_to('TAKE', take_book_path(book_id: book.id)) %>
+<% elsif book.can_give_back?(current_user) %>
+  <%= link_to('GIVE BACK', give_back_book_path(book_id: book.id)) %>
+<% elsif book.can_reserve?(current_user) %>
+  <%= link_to('MAKE RESERVATION', reserve_book_path(book_id: book.id)) %>
+<% else %>
+  <%= link_to('CANCEL RESERVATION', cancel_book_reservation_path(book_id: book.id)) %>
+<% end %>
