@@ -2,7 +2,7 @@ class Book < ApplicationRecord
   has_many :reservations
   has_many :borrowers, through: :reservations, source: :user
 
-  # statuses: AVAILABLE, TAKEN, RESERVED, EXPIRED
+  # statuses: AVAILABLE, TAKEN, RESERVED, EXPIRED, CANCELED, RETURNED
 
   def can_take?(user)
     not_taken? && ( available_for_user?(user) || reservations.empty? )

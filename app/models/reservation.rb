@@ -5,6 +5,8 @@ class Reservation < ApplicationRecord
 
   before_create :set_expiration
 
+  scope :active, -> { where(status: ['TAKEN', 'RESERVED']).order(created_at: :desc) }
+
   private
 
   def set_expiration

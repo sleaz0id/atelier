@@ -1,0 +1,23 @@
+<h3><%= @user.email %></h3>
+<% if @user.reservations.active.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>status</th>
+        <th>title</th>
+        <th>expires</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.reservations.active.each do |reservation| %>
+        <tr>
+          <td class='book-status-<%= reservation.status.underscore %>'><%= reservation.status %></td>
+          <td><%= reservation.book.title %></td>
+          <td><%= "#{reservation.expires_at.to_date} (#{distance_of_time_in_words(reservation.created_at, reservation.expires_at)})" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  user does not have reservations
+<% end %>
