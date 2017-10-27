@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root to: "home#index"
+  root to: "books#index"
 
   get 'books/:book_id/reserve', to: 'reservations#reserve', as: 'reserve_book'
   get 'books/:book_id/take', to: 'reservations#take', as: 'take_book'
