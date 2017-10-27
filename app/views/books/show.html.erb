@@ -1,3 +1,5 @@
-<h1>Items#show</h1>
-<h3><%= @item.name %></h3>
-<p><%= @item.description %></p>
+<h1>Book</h1>
+<h3><%= @book.title %></h3>
+<p><%= @book.isbn %></p>
+<%= render partial: 'books/elements/reservations', locals: {reservations: @book.reservations} %>
+<%= render partial: 'books/elements/action', locals: {book: @book} %>

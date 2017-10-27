@@ -18,3 +18,27 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
 }
+
+.book-status-reserved {
+  color: #b19640;
+}
+
+.book-status-taken {
+  color: #42ab65;
+}
+
+.book-status-available {
+  color: #42ab65;
+}
+
+.book-status-canceled {
+  color: #ccc4c1;
+}
+
+.book-status-expired {
+  color: #ccc4c1;
+}
+
+.book-status-returned {
+  color: #000000;
+}

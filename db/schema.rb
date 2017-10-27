@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727202146) do
+ActiveRecord::Schema.define(version: 20170929133111) do
 
   create_table "authors", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
+  end
+
+  create_table "book_reservations", force: :cascade do |t|
+    t.string "status"
+    t.date "expires_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "book_id"
+    t.integer "user_id"
+    t.index ["book_id"], name: "index_book_reservations_on_book_id"
+    t.index ["user_id"], name: "index_book_reservations_on_user_id"
   end
 
   create_table "books", force: :cascade do |t|
