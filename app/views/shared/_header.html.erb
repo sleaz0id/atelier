@@ -1,10 +1,11 @@
 <header class='main-header'>
   <h3><%= link_to 'Atelier', root_path %></h3>
   <% if current_user %>
-    <div><%= current_user.email %></div>
-    <div><%= link_to 'edit', edit_user_registration_path %></div>
-    <div><%= link_to 'my reservations', users_reservations_path(current_user.id)  %></div>
-    <div><%= button_to('log out', destroy_user_session_path, method: :delete) %></div>
+    <div class="user-data">
+      <%= current_user.email %>
+      <%= link_to 'edit', edit_user_registration_path %>
+      <%= link_to 'my reservations', users_reservations_path(current_user.id)  %>
+      <%= button_to('log out', destroy_user_session_path, method: :delete, class: "btn") %>
+    </div>
   <% end %>
-  <hr>
 </header>

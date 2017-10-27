@@ -1,15 +1,17 @@
-<h1>New book</h1>
-<%= form_tag books_path, method: :post do %>
-  <div>
-    <%= text_field_tag 'title', '', placeholder: 'title', autofocus: true %>
-  </div>
+<div class="basic-form">
+  <h2>New book</h2>
+  <%= form_tag books_path, method: :post do %>
+    <div class="field">
+      <%= text_field_tag 'title', '', placeholder: 'title', autofocus: true %>
+    </div>
 
-  <div>
-    <%= text_field_tag 'isbn', '', placeholder: 'isbn' %>
-  </div>
+    <div class="field">
+      <%= text_field_tag 'isbn', '', placeholder: 'isbn' %>
+    </div>
 
-  <%= button_tag type: 'submit' do %>
-    save
+    <%= button_tag type: 'submit', class: 'btn' do %>
+      save
+    <% end %>
   <% end %>
-<% end %>
-<%= button_to 'cancel', books_path, method: :get %>
+  <%= button_to 'cancel', books_path, method: :get %>
+</div>

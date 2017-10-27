@@ -1,3 +1,92 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// color variables
+$white: #ECEFF1;
+$gray: #37474F;
+$green: #22887B;
+
+// simple css reset
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// general stylesheets rules
+body {
+  background: $white;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  color: $gray;
+}
+h1, h2, h3, strong {
+  font-weight: 400;
+}
+h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  padding: 5px 10px;
+  width: 100%;
+}
+a {
+  color: $green;
+  text-decoration: none;
+}
+
+.main-header {
+  background: $gray;
+  box-shadow: 0 2px 3px rgba(0,0,0,.3);
+  color: $white;
+  display: flex;
+  margin-bottom: 40px;
+  padding: 20px 30px;
+  a {
+    color: $white;
+  }
+}
+
+.user-data {
+  align-items: center;
+  display: flex;
+  margin-left: auto;
+  .btn {
+    margin: 0 0 0 20px;
+  }
+  a {
+    margin-left: 20px;
+  }
+}
+
+.basic-form {
+  margin: 0 auto;
+  max-width: 400px;
+}
+.field {
+  margin: 20px 0;
+  label {
+    display: block;
+    margin: 0 0 5px;
+  }
+  em {
+    color: lighten($gray, 30%);
+    font-size: 13px;
+    font-style: normal;
+  }
+}
+
+// buttons
+.btn {
+  background: $green;
+  border: 0;
+  color: $white;
+  font-size: 17px;
+  padding: 10px 20px;
+  margin: 0 0 20px;
+}
