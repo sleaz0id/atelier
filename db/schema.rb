@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171027215434) do
+ActiveRecord::Schema.define(version: 20171028090510) do
 
   create_table "authors", force: :cascade do |t|
     t.string "firstname"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20171027215434) do
 
   create_table "book_reservations", force: :cascade do |t|
     t.string "status"
-    t.date "expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "book_id"
     t.integer "user_id"
+    t.datetime "expires_at"
     t.index ["book_id"], name: "index_book_reservations_on_book_id"
     t.index ["user_id"], name: "index_book_reservations_on_user_id"
   end
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20171027215434) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
