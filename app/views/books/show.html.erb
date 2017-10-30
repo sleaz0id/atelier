@@ -5,5 +5,8 @@
     <%= render partial: 'books/elements/reservations', locals: {reservations: @book.reservations} %>
   <% end %>
   <%= render partial: 'books/elements/action', locals: {book: @book} %>
-  <%= link_to('return to books', books_path, class: 'btn') %>
+  <%= link_to books_path, class: 'back-link' do %>
+    <i class="fa fa-angle-double-left"></i>
+    return to books
+  <% end %>
 </main>

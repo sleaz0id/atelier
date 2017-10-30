@@ -1,9 +1,9 @@
 <div class="basic-form">
   <h2>New book</h2>
   <%= form_tag books_path, method: :post do %>
-    <div class="field x-isbn">
+    <div class="field field-link x-isbn">
       <%= text_field_tag 'isbn', '', placeholder: 'isbn' %>
-      <%= link_to 'get info', '#', class: 'x-get-book-info-from-google-books' %>
+      <%= link_to 'get info', '#', class: 'x-get-book-info-from-google-books get-info' %>
     </div>
 
     <div class="field x-title">
@@ -19,8 +19,12 @@
     </div>
 
     <%= button_tag type: 'submit', class: 'btn' do %>
+      <i class="fa fa-check"></i>
       save
     <% end %>
+
+    <%= button_tag books_path, method: :get, class: 'btn btn--cancel' do %>
+      cancel
+    <% end %>
   <% end %>
-  <%= button_to 'cancel', books_path, method: :get %>
 </div>

@@ -18,5 +18,8 @@
       <% end %>
     </tbody>
   </table>
-  <%= link_to('add book', new_book_path, class: 'btn') %>
+  <%= link_to new_book_path, class: 'btn' do %>
+    <i class="fa fa-plus-circle"></i>
+    add book
+  <% end %>
 </main>
