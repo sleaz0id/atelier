@@ -1,7 +1,9 @@
-<h1>"<%= @book.title %>"</h1>
-<p>isbn: "<%= @book.isbn %>"</p>
-<% unless @book.reservations.empty? %>
-  <%= render partial: 'books/elements/reservations', locals: {reservations: @book.reservations} %>
-<% end %>
-<%= render partial: 'books/elements/action', locals: {book: @book} %>
-<%= link_to('return to books', books_path) %>
+<main class="main-content">
+  <h2>"<%= @book.title %>"</h2>
+  <p class="isbn-nr">isbn: <strong><%= @book.isbn %></strong></p>
+  <% unless @book.reservations.empty? %>
+    <%= render partial: 'books/elements/reservations', locals: {reservations: @book.reservations} %>
+  <% end %>
+  <%= render partial: 'books/elements/action', locals: {book: @book} %>
+  <%= link_to('return to books', books_path, class: 'btn') %>
+</main>

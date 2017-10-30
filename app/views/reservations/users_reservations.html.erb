@@ -1,42 +1,44 @@
-<h3><%= @user.email %></h3>
-<% if @user.reservations.active.any? %>
-  reservations:
-  <table>
-    <thead>
-      <tr>
-        <th>status</th>
-        <th>title</th>
-        <th>expires</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @user.reservations.active.each do |reservation| %>
+<main class="main-content">
+  <h2><%= @user.email %></h2>
+  <% if @user.reservations.active.any? %>
+    <h3>reservations:</h3>
+    <table>
+      <thead>
         <tr>
-          <td class='book-status-<%= reservation.status.underscore %>'><%= reservation.status %></td>
-          <td><%= reservation.book.title %></td>
-          <td><%= reservation.expires_in %></td>
+          <th>status</th>
+          <th>title</th>
+          <th>expires</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  user does not have reservations
-<% end %>
+      </thead>
+      <tbody>
+        <% @user.reservations.active.each do |reservation| %>
+          <tr>
+            <td class='book-status-<%= reservation.status.underscore %>'><%= reservation.status %></td>
+            <td><%= reservation.book.title %></td>
+            <td><%= reservation.expires_in %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    user does not have reservations
+  <% end %>
 
-<% if @user.reservations.completed.any? %>
-  completed:
-  <table>
-    <thead>
-      <tr>
-        <th>title</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @user.reservations.completed.each do |reservation| %>
+  <% if @user.reservations.completed.any? %>
+    completed:
+    <table>
+      <thead>
         <tr>
-          <td><%= reservation.book.title %></td>
+          <th>title</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+      </thead>
+      <tbody>
+        <% @user.reservations.completed.each do |reservation| %>
+          <tr>
+            <td><%= reservation.book.title %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</main>

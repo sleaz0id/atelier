@@ -6,6 +6,7 @@
 $white: #ECEFF1;
 $gray: #37474F;
 $green: #22887B;
+$green-light: #DCEDC8;
 
 // simple css reset
 *, *::after, *::before {
@@ -29,7 +30,11 @@ h2 {
   font-size: 36px;
   margin-bottom: 20px;
 }
-input[type="text"], input[type="email"], input[type="password"] {
+h3 {
+  font-size: 18px;
+  margin: 20px 0;
+}
+input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 17px;
   padding: 5px 10px;
@@ -51,6 +56,9 @@ a {
     color: $white;
   }
 }
+.brand {
+  font-size: 36px;
+}
 
 .user-data {
   align-items: center;
@@ -68,6 +76,7 @@ a {
   margin: 0 auto;
   max-width: 400px;
 }
+
 .field {
   margin: 20px 0;
   label {
@@ -81,11 +90,74 @@ a {
   }
 }
 
+.main-content {
+  max-width: 960px;
+  margin: 0 auto;
+  p {
+    margin: 20px 0;
+  }
+}
+
+.isbn-nr {
+  color: lighten($gray, 30%);
+  text-transform: uppercase;
+  strong {
+    color: $gray;
+  }
+}
+
+// tables
+table {
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  width: 100%;
+  th, td {
+    border-bottom: 1px solid lighten($gray, 30%);
+    padding: 8px 10px;
+    text-align: left;
+  }
+  th {
+    background: #C8E6C9;
+    font-weight: 400;
+  }
+  td {
+    border-bottom: 1px solid lighten($gray, 50%);
+    background: #fff;
+  }
+}
+
+.book-status-reserved {
+  color: #b19640;
+}
+
+.book-status-taken {
+  color: #42ab65;
+}
+
+.book-status-available {
+  color: #42ab65;
+}
+
+.book-status-canceled {
+  color: #ccc4c1;
+}
+
+.book-status-expired {
+  color: #ccc4c1;
+}
+
+.book-status-returned {
+  color: #000000;
+}
+
 // buttons
 .btn {
   background: $green;
   border: 0;
+  border-radius: 3px;
   color: $white;
+  cursor: pointer;
+  display: inline-block;
   font-size: 17px;
   padding: 10px 20px;
   margin: 0 0 20px;
