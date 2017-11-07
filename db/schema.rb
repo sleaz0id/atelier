@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929133111) do
+ActiveRecord::Schema.define(version: 20171102211338) do
 
   create_table "authors", force: :cascade do |t|
     t.string "firstname"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20170929133111) do
 
   create_table "book_reservations", force: :cascade do |t|
     t.string "status"
-    t.date "expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "book_id"
     t.integer "user_id"
+    t.datetime "expires_at"
     t.index ["book_id"], name: "index_book_reservations_on_book_id"
     t.index ["user_id"], name: "index_book_reservations_on_user_id"
   end
@@ -36,8 +36,19 @@ ActiveRecord::Schema.define(version: 20170929133111) do
     t.datetime "updated_at", null: false
     t.integer "author_id"
     t.integer "publisher_id"
+    t.integer "page_count"
+    t.string "published_date"
+    t.string "language"
+    t.string "preview_link"
+    t.string "info_link"
+    t.integer "category_id"
     t.index ["author_id"], name: "index_books_on_author_id"
+    t.index ["category_id"], name: "index_books_on_category_id"
     t.index ["publisher_id"], name: "index_books_on_publisher_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "publishers", force: :cascade do |t|
@@ -57,6 +68,7 @@ ActiveRecord::Schema.define(version: 20170929133111) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
