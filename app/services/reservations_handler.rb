@@ -6,10 +6,11 @@ class ReservationsHandler
   def take(book)
     return "Book is not available for reservation" unless book.can_be_taken_by(user)
     if book.available_reservation.present?
-      book.available_reservation.update_attributes(status: 'TAKEN')
+      reservation = book.available_reservation.update_attributes(status: 'TAKEN')
     else
-      book.reservations.create(user: user, status: 'TAKEN')
+      reservation = book.reservations.create(user: user, status: 'TAKEN')
     end
+    BooksNotifierMailer.book_taken(book, user, reservation).deliver_now if reservation
   end
 
   def give_back(book)
