@@ -13,32 +13,20 @@ class Book < ApplicationRecord
     self.category = Category.create(name: name)
   end
 
-  def can_take?(user)
-    not_taken? && ( available_for_user?(user) || reservations.empty? )
-  end
-
   def taken_reservation
     reservations.find_by(status: 'TAKEN')
   end
 
-  def can_give_back?(user)
+  def can_be_given_back_by(user)
     reservations.find_by(user: user, status: 'TAKEN').present?
   end
 
-  def can_be_given_back_by
-    not_taken? && ( available_for_user?(user) || reservations.empty? )
-  end
-
-  def can_reserve?(user)
+  def can_be_reserved_by(user)
     reservations.find_by(user: user, status: 'RESERVED').nil?
   end
 
   def can_be_taken_by(user)
-    reservations.find_by(user: user, status: 'AVAILABLE').nil?
-  end
-
-  def can_be_reserved?
-    reservations.find_by(status: 'AVAILABLE').nil?
+    not_taken? && ( available_for_user?(user) || reservations.empty? )
   end
 
   def next_in_queue
