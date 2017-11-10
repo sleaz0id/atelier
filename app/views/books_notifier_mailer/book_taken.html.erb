@@ -1,7 +1,6 @@
-Bonjour book lover,
-
-You just borrowed the book <%= link_to @book.title, book_url(@book.id) %>.
-
-Book should be returned by <%= @reservation.expires_at.to_formatted_s(:long_ordinal) %>.
-
-You can read more about your reservations details on <%= link_to 'your profile page', users_reservations_url(user_id: @user.id) %>.
+<section style="margin: 20px">
+  <p>Bonjour book lover,</p>
+  <p>you just borrowed the book <%= link_to @book.title, book_url(@book.id) %>.</p>
+  <p>Book should be returned by <%= @reservation.expires_at.to_formatted_s(:long_ordinal) %>.</p>
+  <p>You can read more about your reservations details on <%= link_to 'your profile page', users_reservations_url(user_id: @user.id) %>.</p>
+</section>
