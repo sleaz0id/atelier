@@ -10,7 +10,7 @@
       <%= text_field_tag 'title', '', placeholder: 'title', autofocus: true %>
     </div>
 
-    <div class="field x-category-name">
+    <div class="field custom-select x-category-name">
       <%= select_tag "category", options_from_collection_for_select(Category.all, "id", "name") %>
     </div>
 
