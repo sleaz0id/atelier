@@ -58,14 +58,6 @@ ActiveRecord::Schema.define(version: 20171102211338) do
     t.string "name"
   end
 
-  create_table "tasks", id: :serial, force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.datetime "deadline"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

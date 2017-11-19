@@ -7,7 +7,8 @@ class ReservationsHandler
     return "Book is not available for reservation" unless book.can_be_taken_by(user)
 
     if book.available_reservation.present?
-      reservation = book.available_reservation.update_attributes(status: 'TAKEN')
+      reservation = book.available_reservation
+      reservation.update_attributes(status: 'TAKEN')
       perform_expiration_worker(reservation)
     else
       reservation = book.reservations.create(user: user, status: 'TAKEN')

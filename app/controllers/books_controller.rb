@@ -17,6 +17,10 @@ class BooksController < ApplicationController
     end
   end
 
+  def filter
+    render template: 'books/filter', locals: { books: filter_books }
+  end
+
   def show
   end
 
@@ -31,6 +35,25 @@ class BooksController < ApplicationController
   end
 
   def new_book
-    @book = Book.new(title: params[:title], isbn: params[:isbn], category_name: params[:category_name])
+    @book = Book.new(title: params[:title], isbn: params[:isbn], category_id: params[:category])
+  end
+
+  def filter_params
+    permitted_params
+      .slice(:title, :isbn)
+      .merge(category.present? ? { category_id: category.id } : {})
+      .reject { |k,v| v.to_s.empty? }      
+  end
+
+  def filter_books
+    Book.where(filter_params)
+  end
+
+  def category
+    Category.find_by(name: permitted_params[:category_name])
+  end
+
+  def permitted_params
+    params.permit(:title, :isbn, :category_id, :category_name)
   end
 end
