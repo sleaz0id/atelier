@@ -8,5 +8,4 @@ namespace :books_notifier do
       BooksNotifierMailer.book_reserved_return(book).deliver
     end
   end
-
 end
