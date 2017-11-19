@@ -9,10 +9,10 @@ class ReservationsHandler
     if book.available_reservation.present?
       reservation = book.available_reservation
       reservation.update_attributes(status: 'TAKEN')
-      perform_expiration_worker(reservation)
+      #perform_expiration_worker(reservation)
     else
       reservation = book.reservations.create(user: user, status: 'TAKEN')
-      perform_expiration_worker(reservation)
+      #perform_expiration_worker(reservation)
     end
     BooksNotifierMailer.book_taken(book, user, reservation).deliver_now if reservation
   end
