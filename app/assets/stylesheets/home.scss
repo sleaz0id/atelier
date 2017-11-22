@@ -182,6 +182,12 @@ select::-ms-expand {
   visibility: hidden;
 }
 
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .custom-select select {
+    padding-right: 30px;
+  }
+}
+
 .checkbox-field {
   margin-bottom: 20px;
 }

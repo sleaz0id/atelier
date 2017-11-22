@@ -24,6 +24,10 @@ class BooksController < ApplicationController
   def show
   end
 
+  def by_category
+    @category = ::Category.find_by(name: params[:name])
+  end
+
   private
 
   def load_books
