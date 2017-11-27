@@ -23,4 +23,7 @@
     add book
   <% end %>
 </main>
-
+<section class="main-content">
+  <h2>Books from similar categories</h2>
+  <%= render partial: 'books/elements/table', locals: {books: @category.similar_books} %>
+</section>
