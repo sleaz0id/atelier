@@ -18,10 +18,6 @@ class Book < ApplicationRecord
     reservations.find_by(status: 'TAKEN')
   end
 
-  def can_be_given_back_by(user)
-    reservations.find_by(user: user, status: 'TAKEN').present?
-  end
-
   def can_be_reserved_by(user)
     reservations.find_by(user: user, status: 'RESERVED').nil?
   end

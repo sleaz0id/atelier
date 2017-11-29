@@ -16,7 +16,7 @@ class ReservationsHandler
   end
 
   def give_back(book)
-    return unless book.can_be_given_back_by(user)
+    return unless GivenBackPolicy.new(user: user, book: book).applies?
 
     ActiveRecord::Base.transaction do
       book.taken_reservation.update_attributes(status: 'RETURNED')
