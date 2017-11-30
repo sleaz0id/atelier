@@ -20,6 +20,8 @@ gem 'sidekiq'
 gem 'whenever', require: false
 gem 'active_hash', '~> 1.5.2'
 gem 'omniauth-google-oauth2', '~> 0.5.2'
+gem 'a9n', '~> 0.5.4'
+gem 'google-api-client', '0.8.2', require: 'google/api_client'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

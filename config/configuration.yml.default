@@ -1,0 +1,5 @@
+defaults:
+  google_client_id: ~
+  google_client_secret: ~
+  default_calendar: { summary: 'atelier' }
+  app_host: 'http://localhost:3000'
